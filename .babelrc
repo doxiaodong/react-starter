@@ -1,0 +1,34 @@
+{
+    "presets": [
+        "stage-1",
+        "react"
+    ],
+    "env": {
+        "dev": {
+            "presets": ["env"],
+            "plugins": [
+                "react-hot-loader/babel",
+                "syntax-dynamic-import",
+                "transform-runtime",
+                "transform-class-properties",
+                "transform-decorators-legacy"
+            ]
+        },
+        "prod": {
+            "presets": [
+                ["env", {
+                    "modules": false,
+                    "targets": {
+                    "browsers": ["last 2 versions"]
+                    }
+                }]
+            ],
+            "plugins": [
+                "syntax-dynamic-import",
+                "transform-runtime",
+                "transform-class-properties",
+                "transform-decorators-legacy"
+            ]
+        }
+    }
+}
