@@ -1,18 +1,20 @@
 ## TODO
 
-* api
-* test
 * ssr
 
 ### Mobx
 
-* stores (loading, toaster, localStorage)
 * ui-component (loading, toaster) -> webapp-component
-* form (react-mobx-form)
+* form (react-mobx-form)[https://github.com/doxiaodong/darlin-react/blob/master/src/stores/form.ts]
+* mobx-dev-tools
 
 ## DONE
+
+* api
+* test
+* permission
 
 ### Mobx
 
 * lazyload
-* stores(routerStore)
+* stores(routerStore, loading, toaster)

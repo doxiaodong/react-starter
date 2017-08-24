@@ -65,6 +65,7 @@
         "husky": "^0.14.3",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^20.0.4",
+        "mobx-react-devtools": "^4.2.15",
         "postcss-loader": "^2.0.6",
         "prettier": "^1.5.3",
         "react-hot-loader": "^3.0.0-beta.7",
@@ -96,7 +97,10 @@
             "\\.(css|styl)$": "identity-obj-proxy"
         },
         "coverageDirectory": "coverage",
-        "moduleFileExtensions": ["js", "jsx"]
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ]
     },
     "engines": {
         "node": ">=8.0.0",

@@ -1,7 +1,14 @@
 {
     "presets": [
+        "env",
         "stage-1",
         "react"
+    ],
+    "plugins": [
+        "syntax-dynamic-import",
+        "transform-runtime",
+        "transform-decorators-legacy",
+        "transform-class-properties"
     ],
     "env": {
         "dev": {
@@ -10,8 +17,8 @@
                 "react-hot-loader/babel",
                 "syntax-dynamic-import",
                 "transform-runtime",
-                "transform-class-properties",
-                "transform-decorators-legacy"
+                "transform-decorators-legacy",
+                "transform-class-properties"
             ]
         },
         "prod": {
@@ -19,15 +26,15 @@
                 ["env", {
                     "modules": false,
                     "targets": {
-                    "browsers": ["last 2 versions"]
+                        "browsers": ["last 2 versions"]
                     }
                 }]
             ],
             "plugins": [
                 "syntax-dynamic-import",
                 "transform-runtime",
-                "transform-class-properties",
-                "transform-decorators-legacy"
+                "transform-decorators-legacy",
+                "transform-class-properties"
             ]
         }
     }

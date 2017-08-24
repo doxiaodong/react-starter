@@ -32,3 +32,6 @@
 * dependencies
   - classnames
   - omit.js
+  - moment
+  - lodash-es
+  - normalize.css
