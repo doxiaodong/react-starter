@@ -2,10 +2,10 @@ import routerStore from 'stores/router';
 import withPermission from './utils';
 
 function loginRequired() {
-    return new Promise((resove, reject) => {
+    return new Promise(resolve => {
         setTimeout(() => {
             routerStore.push('/404');
-            reject();
+            resolve();
         }, 1000);
     });
 }

@@ -28,6 +28,7 @@ class Home extends Store {
         const data = await getUser1();
         return runInAction('@action: getUser1', () => {
             this.user1 = data;
+            this.user2 = data;
         });
     }
 

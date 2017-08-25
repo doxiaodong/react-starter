@@ -6,7 +6,7 @@ import toasterStore from 'stores/toaster';
 import './style.styl';
 
 @observer
-export default class Loading extends Component {
+export default class Toaster extends Component {
     componentDidMount() {
         reaction(
             () => toasterStore.current,
