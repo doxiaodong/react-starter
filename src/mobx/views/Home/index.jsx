@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import routerStore from 'stores/router';
-import { loginRequired } from 'etc/permissions';
+import { withLoginRequired } from 'etc/permissions';
 import Loading from 'components/Loading';
 
 import store from './store';
 import style from './style.styl';
 
 @observer
-export default class Home extends Component {
-    async componentWillMount() {
-        try {
-            await loginRequired();
-        } catch (error) {
-            routerStore.push('/404');
-        }
-    }
+class Home extends Component {
+    // async componentWillMount() {
+    //     try {
+    //         await loginRequired();
+    //     } catch (error) {
+    //         routerStore.push('/404');
+    //     }
+    // }
 
     componentDidMount() {
         console.log('home with match', this.props.match);
@@ -45,3 +45,5 @@ export default class Home extends Component {
         );
     }
 }
+
+export default withLoginRequired(Home);

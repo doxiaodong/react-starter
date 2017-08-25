@@ -1,2 +1,2 @@
-export { default as loginRequired } from './loginRequired';
-export { default as managerRuired } from './managerRuired';
+export { default as withLoginRequired } from './loginRequired';
+export { default as managerRequired } from './managerRequired';

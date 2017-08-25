@@ -13,7 +13,7 @@ export default class Loading extends Component {
             current => {
                 if (current) {
                     // TODO: add toaster component
-                    console.log(current);
+                    console.error(current);
                 }
             }
         );

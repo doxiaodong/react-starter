@@ -1,3 +1,10 @@
+/**
+ * router store
+ * TODO: add match info in the store
+ * 1. parse route config
+ * 2. use location and route config to get match
+ */
+
 import { observable, action } from 'mobx';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Store from 'etc/Store';

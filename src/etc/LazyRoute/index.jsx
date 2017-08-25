@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Loading from 'components/Loading';
 
 export default class LazyRoute extends Component {
     state = {
@@ -11,6 +12,7 @@ export default class LazyRoute extends Component {
     }
 
     async loadComponent() {
+        // TODO: resolve load module error
         const module = await this.props.component;
         this.component = module.default;
         this.setState({ loaded: true });
@@ -21,8 +23,7 @@ export default class LazyRoute extends Component {
         if (loaded) {
             return <this.component {...this.props} />;
         }
-        // TODO: set loading
-        return <div />;
+        return <Loading />;
     }
 }
 

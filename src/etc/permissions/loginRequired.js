@@ -1,7 +1,15 @@
-export default function loginRequired() {
-    return new Promise(resove => {
+import routerStore from 'stores/router';
+import withPermission from './utils';
+
+function loginRequired() {
+    return new Promise((resove, reject) => {
         setTimeout(() => {
-            resove();
-        }, 0);
+            routerStore.push('/404');
+            reject();
+        }, 1000);
     });
+}
+
+export default function withLoginRequired(Component) {
+    return withPermission(Component, loginRequired);
 }
