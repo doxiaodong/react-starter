@@ -2,7 +2,7 @@ import { Interceptor } from 'intercept-fetch';
 
 const apiPrefix = 'https://api.github.com';
 
-const prefixInterceptor = new Interceptor({
+const requestInterceptor = new Interceptor({
     prefix: {
         request(url, config) {
             return Promise.resolve([apiPrefix + url, config]);
@@ -10,4 +10,4 @@ const prefixInterceptor = new Interceptor({
     }
 });
 
-export default prefixInterceptor;
+export default requestInterceptor;

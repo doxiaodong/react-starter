@@ -1,4 +1,4 @@
-import prefixInterceptor from './request';
-import responseErrorInterceptor from './error';
+import requestInterceptor from './request';
+import errorInterceptor from './error';
 
-export default prefixInterceptor.merge(responseErrorInterceptor);
+export default requestInterceptor.merge(errorInterceptor);

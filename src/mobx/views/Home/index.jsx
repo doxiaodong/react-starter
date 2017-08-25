@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import routerStore from 'stores/router';
-import { withLoginRequired } from 'etc/permissions';
+// import { withLoginRequired } from 'etc/permissions';
 import Loading from 'components/Loading';
 
 import store from './store';
@@ -46,4 +46,6 @@ class Home extends Component {
     }
 }
 
-export default withLoginRequired(Home);
+export default Home;
+
+// export default withLoginRequired(Home);
