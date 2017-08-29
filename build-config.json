@@ -1,0 +1,17 @@
+{
+    "extends": "react",
+    "entries": {
+        "index": "src/index.jsx"
+    },
+    "pages": {
+        "index": {
+            "template": "src/index.html",
+            "entries": "index",
+            "path": ""
+        }
+    },
+    "transforms": {
+        "stylus": "stylus",
+        "styl": "stylus"
+    }
+}

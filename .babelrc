@@ -9,33 +9,5 @@
         "transform-runtime",
         "transform-decorators-legacy",
         "transform-class-properties"
-    ],
-    "env": {
-        "dev": {
-            "presets": ["env"],
-            "plugins": [
-                "react-hot-loader/babel",
-                "syntax-dynamic-import",
-                "transform-runtime",
-                "transform-decorators-legacy",
-                "transform-class-properties"
-            ]
-        },
-        "prod": {
-            "presets": [
-                ["env", {
-                    "modules": false,
-                    "targets": {
-                        "browsers": ["last 2 versions"]
-                    }
-                }]
-            ],
-            "plugins": [
-                "syntax-dynamic-import",
-                "transform-runtime",
-                "transform-decorators-legacy",
-                "transform-class-properties"
-            ]
-        }
-    }
+    ]
 }

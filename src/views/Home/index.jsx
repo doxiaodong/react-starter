@@ -36,7 +36,7 @@ class Home extends Component {
                         user1: {stringUser1}
                     </p>}
                 <p>
-                    use r2: {JSON.stringify(user2)}
+                    user2: {JSON.stringify(user2)}
                 </p>
                 <button type="button" onClick={this.handleClick}>
                     go to 404 by routerStore
