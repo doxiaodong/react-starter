@@ -12,6 +12,15 @@
     },
     "transforms": {
         "stylus": "stylus",
-        "styl": "stylus"
+        "styl": {
+            "transformer": "stylus",
+            "config": {
+                "cssOptions": {
+                    "modules": true,
+                    "sourceMap": true,
+                    "localIdentName": "[local]__[hash:base64:6]"
+                }
+            }
+        }
     }
 }

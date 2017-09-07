@@ -19,8 +19,8 @@ const hotRender = Component =>
 
 hotRender(App);
 if (module.hot) {
-    module.hot.accept('./views/App', () => {
-        const NewApp = require('./views/App').default;
+    module.hot.accept('./views/App', async () => {
+        const { default: NewApp } = await import('./views/App');
         hotRender(NewApp);
-    })
+    });
 }
