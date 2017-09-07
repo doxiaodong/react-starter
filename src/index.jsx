@@ -1,4 +1,5 @@
-// import { AppContainer } from 'react-hot-loader';
+import 'react-hot-loader/patch';
+import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
 import { useStrict } from 'mobx';
@@ -10,13 +11,16 @@ useStrict(true);
 
 const hotRender = Component =>
     render(
-        // <AppContainer>
-        <Component />,
-        // </AppContainer>,
+        <AppContainer>
+            <Component />
+        </AppContainer>,
         document.getElementById('app')
     );
 
 hotRender(App);
-// if (module.hot) {
-//     module.hot.accept('./views/App', () => hotRender(App.default));
-// }
+if (module.hot) {
+    module.hot.accept('./views/App', () => {
+        const NewApp = require('./views/App').default;
+        hotRender(NewApp);
+    })
+}
