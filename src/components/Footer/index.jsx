@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
+import style from './style.styl';
+
 export default class Footer extends Component {
     componentDidMount() {
         console.log('footer without match', this.props.match);
     }
 
     render() {
-        return (
-            <footer style={{ textAlign: 'center', background: 'yellow' }}>
-                footer
-            </footer>
-        );
+        return <footer className={style.footer}>footer</footer>;
     }
 }

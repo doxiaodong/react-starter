@@ -2,10 +2,10 @@
 @import '~styles/variables.styl'
 
 *
-    box-sizing: border-box
+    box-sizing border-box
 
 html,
 body,
 .h100
-    margin: 0
-    height: 100%
+    margin 0
+    height 100%

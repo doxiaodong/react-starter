@@ -5,7 +5,7 @@ import Layout from 'views/Layout';
 import LoginRequiredHome from 'views/Home';
 
 // lazyload
-const Notfound = props =>
+const DynamicNotfound = props =>
     <LazyRoute {...props} component={import('./Notfound')} />;
 
 export default class App extends Component {
@@ -15,7 +15,7 @@ export default class App extends Component {
                 <Switch>
                     <Route exact path="/" component={LoginRequiredHome} />
 
-                    <Route exact path="/404" component={Notfound} />
+                    <Route exact path="/404" component={DynamicNotfound} />
                     <Route render={() => <Redirect to="/404" />} />
                 </Switch>
             </Layout>

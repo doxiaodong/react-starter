@@ -15,11 +15,10 @@
         "styl": {
             "transformer": "stylus",
             "config": {
-                "cssOptions": {
-                    "modules": true,
-                    "sourceMap": true,
-                    "localIdentName": "[local]__[hash:base64:6]"
-                }
+                "autoprefixOptions": {
+                    "browsers": ["last 2 version", "> 20%"]
+                },
+                "modules": true
             }
         }
     }
