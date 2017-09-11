@@ -6,6 +6,9 @@
         "browser": true,
         "jest": true
     },
+    "globals": {
+        "ENV": true
+    },
     "rules": {
         "prettier/prettier": [2, {
             "singleQuote": true,

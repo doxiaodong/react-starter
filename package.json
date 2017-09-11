@@ -6,11 +6,10 @@
         "lint:es": "eslint . --ext .js,jsx",
         "test": "jest --coverage --colors",
         "format": "npm run lint:es -- --fix",
-        "clean": "rm -rf dist",
-        "ci": "npm run clean && npm run lint && npm run test && npm run build",
+        "ci": "npm run lint && npm run test && npm run build",
         "codecov": "codecov",
-        "start": "fec-builder 8080",
-        "build": "fec-builder --build"
+        "start": "fec-builder -p 8080 -e dev",
+        "build": "fec-builder --build -e prod"
     },
     "dependencies": {
         "classnames": "^2.2.5",
