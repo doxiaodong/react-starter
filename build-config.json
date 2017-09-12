@@ -11,7 +11,6 @@
         }
     },
     "transforms": {
-        "stylus": "stylus",
         "styl": {
             "transformer": "stylus",
             "config": {

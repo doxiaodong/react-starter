@@ -1,3 +1,3 @@
 {
-    "API_PREFIX": "https://prod-api.github.com"
+    "API_PREFIX": "https://api.github.com"
 }
