@@ -25,13 +25,8 @@ class Home extends Component {
             <Page title="Home">
                 <div className={style.home}>
                     {loadings.user1 && <Loading />}
-                    {!loadings.user1 &&
-                        <p>
-                            user1: {stringUser1}
-                        </p>}
-                    <p>
-                        user2: {JSON.stringify(user2)}
-                    </p>
+                    {!loadings.user1 && <p>user1: {stringUser1}</p>}
+                    <p>user2: {JSON.stringify(user2)}</p>
                     <button type="button" onClick={this.handleClick}>
                         go to 404 by routerStore
                     </button>

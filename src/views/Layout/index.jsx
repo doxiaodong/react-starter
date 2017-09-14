@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { Router } from 'react-router-dom';
-import routerStore from 'stores/router';
+import { useStrict } from 'mobx';
+import { renderRoutes } from 'react-router-config';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Toaster from 'components/Toaster';
 
+import 'styles';
 import style from './style.styl';
+
+useStrict(true);
 
 @observer
 export default class Layout extends Component {
     render() {
+        const { route: { routes } } = this.props;
         return (
-            <Router history={routerStore.history}>
-                <div className="h100">
-                    <Header />
-                    <div className={style.container}>
-                        {this.props.children}
-                    </div>
-                    <Footer />
-                    <Toaster />
-                </div>
-            </Router>
+            <div className="h100">
+                <Header />
+                <div className={style.container}>{renderRoutes(routes)}</div>
+                <Footer />
+                <Toaster />
+            </div>
         );
     }
 }
+
+Layout.propTypes = {
+    route: PropTypes.object.isRequired
+};

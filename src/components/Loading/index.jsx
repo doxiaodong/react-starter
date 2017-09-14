@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 export default class Loading extends Component {
     render() {
         const { desc } = this.props;
-        return (
-            <div>
-                {desc}
-            </div>
-        );
+        return <div>{desc}</div>;
     }
 }
 

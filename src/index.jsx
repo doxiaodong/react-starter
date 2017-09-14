@@ -2,12 +2,7 @@ import 'react-hot-loader/patch';
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
-import { useStrict } from 'mobx';
-import App from 'views/App';
-
-import 'styles';
-
-useStrict(true);
+import App from 'views/client';
 
 const hotRender = Component =>
     render(
@@ -19,8 +14,8 @@ const hotRender = Component =>
 
 hotRender(App);
 if (module.hot) {
-    module.hot.accept('./views/App', async () => {
-        const { default: NewApp } = await import('./views/App');
+    module.hot.accept('./views/client', async () => {
+        const { default: NewApp } = await import('./views/client');
         hotRender(NewApp);
     });
 }
