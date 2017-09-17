@@ -6,10 +6,6 @@ export default {
         __dirname,
         '../dist/webpack-assets.json'
     ),
-    webpack_stats_file_path: path.resolve(
-        __dirname,
-        '../dist/webpack-stats.json'
-    ),
     assets: {
         images: {
             extensions: ['png', 'jpg', 'gif', 'jpeg']

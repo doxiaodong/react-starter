@@ -9,5 +9,5 @@ global.webpackIsomorphicTools = new WebpackIsomorphicTools(
 ).server(path.resolve(__dirname, '..'), () => {
     /* eslint-disable */
     require('./server.jsx');
-    /* eslint-disable */    
+    /* eslint-disable */
 });

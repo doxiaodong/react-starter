@@ -6,7 +6,6 @@
  */
 
 import { observable, action } from 'mobx';
-import createBrowserHistory from 'history/createBrowserHistory';
 import Store from 'etc/Store';
 
 class Router extends Store {
@@ -18,8 +17,8 @@ class Router extends Store {
         this.location = location;
     }
 
-    constructor(history) {
-        super();
+    // must set history first for server side render
+    setHistory(history) {
         this.history = history;
         const handleLocationChange = location => {
             this.updateLocation(location);
@@ -45,6 +44,4 @@ class Router extends Store {
     }
 }
 
-const browserHistory = createBrowserHistory();
-
-export default new Router(browserHistory);
+export default new Router();

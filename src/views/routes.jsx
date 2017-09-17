@@ -1,14 +1,26 @@
-// import React from 'react';
+import React from 'react';
 import Layout from 'views/Layout';
 import LoginRequiredHome from 'views/Home';
-import Notfound from 'views/Notfound';
+// import Notfound from 'views/Notfound';
 
-// import LazyRoute from 'etc/LazyRoute';
+import LazyRoute from 'etc/LazyRoute';
 
-// lazyload
+// Dynamic
 // const DynamicNotfound = props => (
 //     <LazyRoute {...props} component={import('./Notfound')} />
 // );
+// TODO: Dynamic import cannot run in ssr
+// TODO: Dynamic Route cannot be render in ssr
+const DynamicNotfound = props => {
+    const component = new Promise(resolve => {
+        /* eslint-disable */
+        require.ensure([], () => {
+            resolve(require('./Notfound'));
+        });
+        /* eslint-enable */
+    });
+    return <LazyRoute {...props} component={component} />;
+};
 
 const routes = [
     {
@@ -22,7 +34,7 @@ const routes = [
             {
                 path: '/404',
                 exact: true,
-                component: Notfound
+                component: DynamicNotfound
             }
         ]
     }

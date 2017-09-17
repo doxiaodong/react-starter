@@ -2,7 +2,7 @@ import 'react-hot-loader/patch';
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
-import App from 'views/client';
+import App from 'views/App';
 
 const hotRender = Component =>
     render(
@@ -14,8 +14,8 @@ const hotRender = Component =>
 
 hotRender(App);
 if (module.hot) {
-    module.hot.accept('./views/client', async () => {
-        const { default: NewApp } = await import('./views/client');
+    module.hot.accept('./views/App', async () => {
+        const { default: NewApp } = await import('./views/App');
         hotRender(NewApp);
     });
 }
