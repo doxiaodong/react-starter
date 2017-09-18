@@ -3,10 +3,16 @@ import Store from 'etc/Store';
 import { getUser1, getUser2 } from 'api/user';
 import { Loadings } from 'stores/loadings';
 import toasterStore from 'stores/toaster';
+import ssrStore from 'stores/ssr';
 
 const loadings = new Loadings();
 
 class Home extends Store {
+    constructor() {
+        super();
+        this.init();
+    }
+
     @computed
     get loadings() {
         return loadings.state;
@@ -38,6 +44,25 @@ class Home extends Store {
         return runInAction('@action: getUser2', () => {
             this.user2 = data;
         });
+    }
+
+    // for ssr
+    @action
+    init() {
+        if (ssrStore.ssr) {
+            this.user1 = global.$appStores$.home.user1;
+            this.user2 = global.$appStores$.home.user2;
+        }
+    }
+
+    $serverLoad$() {
+        return this.getUser1();
+    }
+    $toJSON$() {
+        return {
+            user1: this.user1,
+            user2: this.user2
+        };
     }
 }
 

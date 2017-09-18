@@ -7,6 +7,7 @@
 
 import { observable, action } from 'mobx';
 import Store from 'etc/Store';
+import ssrStore from './ssr';
 
 class Router extends Store {
     @observable location = null;
@@ -21,6 +22,9 @@ class Router extends Store {
     setHistory(history) {
         this.history = history;
         const handleLocationChange = location => {
+            if (ssrStore.ssr) {
+                ssrStore.clear();
+            }
             this.updateLocation(location);
         };
 
