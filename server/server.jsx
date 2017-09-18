@@ -17,9 +17,15 @@ app.use('/static', express.static(path.resolve(__dirname, '../dist/static')));
 app.get('*', async (req, res) => {
     const context = {};
     const $appStores$ = {};
+    let $ssr$ = true;
     if (appStores[req.url]) {
         const { store, name } = appStores[req.url];
-        await store.$serverLoad$();
+        try {
+            await store.$serverLoad$();
+        } catch (error) {
+            $ssr$ = false;
+            console.log(error);
+        }
         $appStores$[name] = store.$toJSON$();
     }
     const html = renderToString(
@@ -32,7 +38,7 @@ app.get('*', async (req, res) => {
             '<div id="app" class="h100"></div>',
             `<div id="app" class="h100">${html}</div>
 <script>
-    window.$ssr$=true;window.$appStores$=${JSON.stringify($appStores$)};
+    window.$ssr$=${$ssr$};window.$appStores$=${JSON.stringify($appStores$)};
 </script>`
         )
     );
