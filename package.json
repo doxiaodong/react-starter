@@ -8,8 +8,9 @@
         "format": "npm run lint:es -- --fix",
         "ci": "npm run lint && npm run test && npm run build",
         "codecov": "codecov",
-        "start": "fec-builder -p 8080 -e dev",
-        "build": "fec-builder --build -e prod"
+        "start": "fec-builder -p 8080 -f ./env/dev.json",
+        "build": "fec-builder clean && fec-builder generate -f ./env/prod.json -e production",
+        "ssr:server": "node bin/www"
     },
     "dependencies": {
         "babel-register": "^6.26.0",

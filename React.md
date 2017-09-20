@@ -35,3 +35,11 @@
   - moment
   - lodash-es
   - normalize.css
+
+### Component
+* form
+  - https://github.com/foxhound87/mobx-react-form
+* animate
+  - https://github.com/react-component/animate
+* hammerjs
+  - https://github.com/JedWatson/react-hammerjs

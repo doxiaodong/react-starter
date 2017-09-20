@@ -10,7 +10,12 @@ if (!global.fetch) {
     global.Headers = fetch.Headers;
     global.Request = fetch.Request;
 }
-global.ENV = ENV;
+
+// TODO: support { "ENV.API_PREFIX": "https://api.github.com" }
+// https://github.com/webpack/webpack/blob/master/lib/DefinePlugin.js
+Object.keys(ENV).forEach(key => {
+    global[key] = ENV[key];
+});
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(
     isomorphicConfig
 ).server(path.resolve(__dirname, '..'), () => {

@@ -1,3 +1,5 @@
 {
-    "API_PREFIX": "https://staging-api.github.com"
+    "ENV": {
+        "API_PREFIX": "https://staging-api.github.com"
+    }
 }
