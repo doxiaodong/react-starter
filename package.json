@@ -9,7 +9,7 @@
         "ci": "npm run lint && npm run test && npm run build",
         "codecov": "codecov",
         "start": "fec-builder -p 8080 -f ./env/dev.json",
-        "build": "fec-builder clean && fec-builder generate -f ./env/prod.json -e production",
+        "build": "BUILD_ENV=production fec-builder generate -f ./env/prod.json",
         "ssr:server": "node bin/www"
     },
     "dependencies": {
