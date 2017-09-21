@@ -1,7 +1,9 @@
-FROM nginx:alpine
+FROM node:alpine
 RUN mkdir -p /app
 WORKDIR /app
 COPY dist/ /app
+COPY node_modules/ /app
 RUN ls
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+
 EXPOSE 4000
+CMD ["node", "bin/www"]
