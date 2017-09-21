@@ -8,4 +8,4 @@ RUN ls
 RUN sh build.sh
 
 EXPOSE 4000
-CMD ["node", "--experimental-modules", "/app/bin/www.mjs"]
+CMD ["node", "/app/bin/www"]

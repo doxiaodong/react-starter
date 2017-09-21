@@ -8,14 +8,13 @@
         "format": "npm run lint:es -- --fix",
         "ci": "npm run lint && npm run test && npm run build",
         "codecov": "codecov",
-        "start": "fec-builder -p 8080 -f ./env/dev.json",
-        "build": "BUILD_ENV=production fec-builder generate -f ./env/prod.json",
-        "ssr:server": "node bin/www"
+        "start": "fec-builder -p 8080 -f ./env/dev.json"
     },
     "dependencies": {
         "babel-register": "^6.26.0",
         "classnames": "^2.2.5",
         "express": "^4.15.4",
+        "express-history-api-fallback": "^2.2.1",
         "intercept-fetch": "^1.4.1",
         "lodash-es": "^4.17.4",
         "mobx": "^3.2.2",
