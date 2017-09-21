@@ -1,1 +1,1 @@
-import './normalize.stylus';
+import './normalize.styl';

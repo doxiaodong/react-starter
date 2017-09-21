@@ -1,0 +1,24 @@
+{
+    "extends": "react",
+    "entries": {
+        "index": "src/index.jsx"
+    },
+    "pages": {
+        "index": {
+            "template": "src/index.html",
+            "entries": "index",
+            "path": ""
+        }
+    },
+    "transforms": {
+        "styl": {
+            "transformer": "stylus",
+            "config": {
+                "autoprefixOptions": {
+                    "browsers": ["last 2 version", "> 20%"]
+                },
+                "modules": true
+            }
+        }
+    }
+}

@@ -4,13 +4,6 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "jsx": "react",
-        "baseUrl": "src",
-        "paths": {
-            "*": [
-                "*",
-                "mobx/*",
-                "redux/*"
-            ]
-        }
+        "baseUrl": "src"
     }   
 }

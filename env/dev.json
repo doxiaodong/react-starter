@@ -1,0 +1,5 @@
+{
+    "ENV": {
+        "API_PREFIX": "https://api.github.com"
+    }
+}
