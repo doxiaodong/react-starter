@@ -1,5 +1,6 @@
-FROM node:alpine
+FROM node
 
+RUN apt-get update && apt-get install -y wget autoconf automake gcc nasm libtool libpng-dev pkg-config make
 RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
