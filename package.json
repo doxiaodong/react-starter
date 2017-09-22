@@ -8,7 +8,8 @@
         "format": "npm run lint:es -- --fix",
         "ci": "npm run lint && npm run test && npm run build",
         "codecov": "codecov",
-        "start": "fec-builder -p 8080 -f ./env/dev.json"
+        "start": "fec-builder -p 8080 -f ./env/dev.json",
+        "build": "sh build.sh"
     },
     "dependencies": {
         "babel-register": "^6.26.0",
