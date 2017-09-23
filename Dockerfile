@@ -1,9 +1,10 @@
-FROM node
+FROM ubuntu:16.04
 
-RUN echo "deb http://mirrors.aliyun.com/debian stretch main\n\
-deb http://mirrors.aliyun.com/debian stretch-updates main\n\
-deb http://mirrors.aliyun.com/debian-security stretch/updates main" > /etc/apt/sources.list
-RUN apt-get update && apt-get install -y wget autoconf automake gcc nasm libtool libpng-dev pkg-config make
+COPY ./sources.list /etc/apt/sources.list
+RUN apt-get update && apt-get install -y curl wget autoconf automake gcc nasm libtool libpng-dev pkg-config make
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+RUN apt-get install --yes build-essential
 
 RUN mkdir -p /app
 WORKDIR /app
