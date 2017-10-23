@@ -19,4 +19,7 @@ RUN npm i --registry http://registry.npm.taobao.org
 RUN sh build.sh
 
 EXPOSE 4000
-CMD ["node", "--experimental-modules", "/app/bin/www.mjs"]
+# client side render
+# CMD ["node", "--experimental-modules", "/app/bin/www.mjs"]
+# server side render
+CMD ["node", "/app/bin/www"]

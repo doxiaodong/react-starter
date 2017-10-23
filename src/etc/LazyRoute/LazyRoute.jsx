@@ -20,8 +20,9 @@ export default class LazyRoute extends Component {
 
     render() {
         const { loaded } = this.state;
+        const { component, ...others } = this.props;
         if (loaded) {
-            return <this.component {...this.props} />;
+            return <this.component {...others} />;
         }
         return <Loading />;
     }

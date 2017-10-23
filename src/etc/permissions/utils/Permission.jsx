@@ -8,8 +8,9 @@ export default class Permission extends Component {
     };
 
     componentDidMount() {
-        this.component = this.props.component;
-        this.loadPermission();
+        if (!this.props.forceShow) {
+            this.loadPermission();
+        }
     }
 
     async loadPermission() {
@@ -26,8 +27,9 @@ export default class Permission extends Component {
     }
 
     render() {
-        if (this.state.allow) {
-            return <this.component />;
+        const { component: C, forceShow } = this.props;
+        if (this.state.allow || forceShow) {
+            return <C />;
         }
         return <Loading />;
     }
@@ -35,5 +37,10 @@ export default class Permission extends Component {
 
 Permission.propTypes = {
     component: PropTypes.any.isRequired,
-    permission: PropTypes.any.isRequired
+    permission: PropTypes.any.isRequired,
+    forceShow: PropTypes.bool
+};
+
+Permission.defaultProps = {
+    forceShow: false
 };

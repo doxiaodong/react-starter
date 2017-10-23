@@ -1,26 +1,13 @@
-import React from 'react';
+// import React from 'react';
+// import { LazyRoute } from 'etc/LazyRoute';
 import Layout from 'views/Layout';
 import LoginRequiredHome from 'views/Home';
-// import Notfound from 'views/Notfound';
-
-import LazyRoute from 'etc/LazyRoute';
+import Notfound from 'views/Notfound';
 
 // Dynamic
-// const DynamicNotfound = props => (
-//     <LazyRoute {...props} component={import('./Notfound')} />
-// );
-// TODO: Dynamic import cannot run in ssr
-// TODO: Dynamic Route cannot be render in ssr
-const DynamicNotfound = props => {
-    const component = new Promise(resolve => {
-        /* eslint-disable */
-        require.ensure([], () => {
-            resolve(require('./Notfound'));
-        });
-        /* eslint-enable */
-    });
-    return <LazyRoute {...props} component={component} />;
-};
+// Notice: Dynamic route cannot render by ssr, so use Notfound instead
+// Maybe this https://github.com/thejameskyle/react-loadable
+// const DynamicNotfound = () => <LazyRoute component={import('./Notfound')} />;
 
 const routes = [
     {
@@ -34,7 +21,7 @@ const routes = [
             {
                 path: '/404',
                 exact: true,
-                component: DynamicNotfound
+                component: Notfound
             }
         ]
     }

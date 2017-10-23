@@ -5,7 +5,7 @@
     },
     "pages": {
         "index": {
-            "template": "src/index.html",
+            "template": "src/index.ssr.html",
             "entries": "index",
             "path": ""
         }

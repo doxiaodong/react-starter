@@ -49,6 +49,11 @@ app.get('*', async (req, res) => {
         }
     });
 
+    // Important! force render dom without re permission if state is valid
+    /* eslint-disable */
+    global.__state__ = state;
+    /* eslint-enable */
+
     const html = renderToString(
         <StaticRouter location={req.url} context={context}>
             {renderRoutes(routes)}

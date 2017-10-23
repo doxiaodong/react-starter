@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import routerStore from 'stores/router';
-// import { withLoginRequired } from 'etc/permissions';
+import { withLoginRequired } from 'etc/permissions';
 import Loading from 'components/Loading';
 import Page from 'components/Page';
 
@@ -12,6 +12,9 @@ import style from './style.styl';
 @observer
 class Home extends Component {
     static async getInitialStoreState() {
+        // TODO: add LoginPermisson here, maybe
+        // await userStore.userInfo()
+        // relative withLoginRequired loginRequired function
         await store.getUser1();
         return {
             home: {
@@ -49,5 +52,4 @@ class Home extends Component {
     }
 }
 
-// export default withLoginRequired(Home);
-export default Home;
+export default withLoginRequired(Home);
