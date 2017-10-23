@@ -1,22 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+const fetch = require('node-fetch');
+const register = require('babel-register');
 
-require.extensions['.html'] = (module, filename) => {
-    /* eslint-disable */
-    module.exports = fs.readFileSync(filename, 'utf8');
-    /* eslint-enable */
-};
-
-const babelrc = fs.readFileSync(
-    path.resolve(__dirname, '../.babelrc'),
-    'utf-8'
-);
-let config;
-
-try {
-    config = JSON.parse(babelrc);
-} catch (error) {
-    console.log(error);
+if (!global.fetch) {
+    global.fetch = fetch;
+    global.Response = fetch.Response;
+    global.Headers = fetch.Headers;
+    global.Request = fetch.Request;
 }
 
-require('babel-register')(config);
+register({
+    // ignore if use lodash-es
+    // ignore: /node_modules\/(?!lodash-es)/
+});

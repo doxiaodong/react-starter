@@ -49,20 +49,13 @@ class Home extends Store {
     // for ssr
     @action
     init() {
-        if (ssrStore.ssr) {
-            this.user1 = global.$appStores$.home.user1;
-            this.user2 = global.$appStores$.home.user2;
+        if (ssrStore.state) {
+            const { home } = ssrStore.state;
+            if (home) {
+                this.user1 = home.user1;
+                this.user2 = home.user2;
+            }
         }
-    }
-
-    $serverLoad$() {
-        return this.getUser1();
-    }
-    $toJSON$() {
-        return {
-            user1: this.user1,
-            user2: this.user2
-        };
     }
 }
 

@@ -11,9 +11,19 @@ import style from './style.styl';
 
 @observer
 class Home extends Component {
+    static async getInitialStoreState() {
+        await store.getUser1();
+        return {
+            home: {
+                user1: store.user1,
+                user2: store.user2
+            }
+        };
+    }
+
     componentDidMount() {
         console.log('home with match', this.props.match);
-        if (!ssrStore.ssr) {
+        if (!ssrStore.stateLoaded) {
             store.getUser1();
         }
     }

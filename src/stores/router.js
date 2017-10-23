@@ -22,7 +22,7 @@ class Router extends Store {
     setHistory(history) {
         this.history = history;
         const handleLocationChange = location => {
-            if (ssrStore.ssr) {
+            if (ssrStore.stateLoaded) {
                 ssrStore.clear();
             }
             this.updateLocation(location);

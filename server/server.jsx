@@ -1,14 +1,21 @@
 import path from 'path';
+import fs from 'fs';
 import React from 'react';
 import { useStaticRendering } from 'mobx-react';
 import { renderToString } from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
-import { renderRoutes } from 'react-router-config';
+import { renderRoutes, matchRoutes } from 'react-router-config';
 import express from 'express';
-
+import { template } from 'lodash';
 import routes from '../src/views/routes.jsx';
-import distHtml from '../dist/index.html';
-import appStores from './$appStores$';
+
+const distHtml = fs.readFileSync(
+    path.resolve(__dirname, '../dist/index.html'),
+    'utf-8'
+);
+const reEscape = /{%-([\s\S]+?)%}/g;
+const reEvaluate = /{%([\s\S]+?)%}/g;
+const reInterpolate = /{%=([\s\S]+?)%}/g;
 
 useStaticRendering(true);
 
@@ -16,32 +23,48 @@ const app = express();
 app.use('/static', express.static(path.resolve(__dirname, '../dist/static')));
 app.get('*', async (req, res) => {
     const context = {};
-    const $appStores$ = {};
-    let $ssr$ = true;
-    if (appStores[req.url]) {
-        const { store, name } = appStores[req.url];
-        try {
-            await store.$serverLoad$();
-        } catch (error) {
-            $ssr$ = false;
-            console.log(error);
+    let state = {};
+    const branch = matchRoutes(routes, req.url);
+    const promises = branch.map(({ route }) => {
+        if (route.component && route.component.getInitialStoreState) {
+            return route.component.getInitialStoreState({ req, res });
         }
-        $appStores$[name] = store.$toJSON$();
+        return Promise.resolve(null);
+    });
+
+    let stateArr = [];
+
+    try {
+        stateArr = await Promise.all(promises);
+    } catch (error) {
+        console.error('ssr prefetch error');
+        state = null;
     }
+
+    stateArr.forEach(s => {
+        if (s) {
+            Object.keys(s).forEach(k => {
+                state[k] = s[k];
+            });
+        }
+    });
+
     const html = renderToString(
         <StaticRouter location={req.url} context={context}>
             {renderRoutes(routes)}
         </StaticRouter>
     );
-    res.write(
-        distHtml.replace(
-            '<div id="app" class="h100"></div>',
-            `<div id="app" class="h100">${html}</div>
-<script>
-    window.$ssr$=${$ssr$};window.$appStores$=${JSON.stringify($appStores$)};
+    const responseHtml = template(distHtml, {
+        escape: reEscape,
+        evaluate: reEvaluate,
+        interpolate: reInterpolate
+    })({
+        html,
+        script: `<script>
+window.__state__ = ${JSON.stringify(state)};
 </script>`
-        )
-    );
+    });
+    res.write(responseHtml);
     res.end();
 });
 app.listen(4000, () => {

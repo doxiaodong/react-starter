@@ -22,7 +22,7 @@ export class Loadings extends Store {
     tryAdd(name) {
         /* eslint-disable */
         if (!this.state.hasOwnProperty(name)) {
-        /* eslint-enable */
+            /* eslint-enable */
             this.add(name);
         }
     }
@@ -59,9 +59,7 @@ export class Loadings extends Store {
 
     handle(name) {
         this.tryAdd(name);
-        /* tslint:disable */
         const loadings = this;
-        /* tslint:enable */
         return replaceMethod(
             origin =>
                 function repalce(...args) {

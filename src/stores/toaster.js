@@ -83,9 +83,7 @@ export class Toaster extends Store {
 
     handle(successText, failureText, levels) {
         const shadowLevels = this.getLevels(levels);
-        /* tslint:disable */
         const me = this;
-        /* tslint:enable */
         return replaceMethod(
             origin =>
                 function replace(...args) {

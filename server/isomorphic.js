@@ -1,6 +1,6 @@
-import path from 'path';
+const path = require('path');
 
-export default {
+module.exports = {
     debug: false,
     webpack_assets_file_path: path.resolve(
         __dirname,
