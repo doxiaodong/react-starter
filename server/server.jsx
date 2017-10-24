@@ -65,9 +65,7 @@ app.get('*', async (req, res) => {
         interpolate: reInterpolate
     })({
         html,
-        script: `<script>
-window.__state__ = ${JSON.stringify(state)};
-</script>`
+        script: `<script>window.__state__=${JSON.stringify(state)};</script>`
     });
     res.write(responseHtml);
     res.end();
