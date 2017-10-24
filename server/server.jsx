@@ -7,8 +7,7 @@ import StaticRouter from 'react-router-dom/StaticRouter';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import express from 'express';
 import { template } from 'lodash';
-import pako from 'pako';
-import { Base64 } from 'js-base64';
+import { encode } from '../src/utils';
 import routes from '../src/views/routes.jsx';
 
 const distHtml = fs.readFileSync(
@@ -51,11 +50,7 @@ app.get('*', async (req, res) => {
         }
     });
 
-    if (state) {
-        state = Base64.encode(
-            pako.deflate(JSON.stringify(state), { to: 'string' })
-        );
-    }
+    state = encode(state);
 
     // Important! force render dom without re permission if state is valid
     /* eslint-disable */
