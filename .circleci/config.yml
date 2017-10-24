@@ -10,7 +10,7 @@ jobs:
                 key: add-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - run:
                 name: Install dependencies
-                command: npm i --registry https://registry.npmjs.org
+                command: npm i --registry https://registry.npm.taobao.org
             - run:
                 name: Ci
                 command: npm run ci
