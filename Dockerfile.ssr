@@ -10,6 +10,8 @@ COPY . /app
 RUN ls
 RUN npm cache verify
 RUN npm i --registry http://registry.npm.taobao.org
+# use build-config.ssr.json		
+RUN rm build-config.json && mv build-config.ssr.json build-config.json
 RUN sh build.sh
 
 EXPOSE 4000
