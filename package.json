@@ -9,10 +9,10 @@
         "ci": "npm run lint && npm run test && npm run build:prod",
         "codecov": "codecov",
         "start": "fec-builder -p 8080 -f ./env/dev.json",
-        "build:dev": "sh prepare-build.sh dev true",        
-        "build:staging": "sh prepare-build.sh staging true",
-        "build:beta": "sh prepare-build.sh beta true",
-        "build:prod": "sh prepare-build.sh prod true"
+        "build:dev": "sh build.sh dev true",        
+        "build:staging": "sh build.sh staging true",
+        "build:beta": "sh build.sh beta true",
+        "build:prod": "sh build.sh prod true"
     },
     "dependencies": {
         "babel-register": "^6.26.0",
