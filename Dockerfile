@@ -10,7 +10,7 @@ COPY . /app
 RUN ls
 RUN npm cache verify
 RUN npm i --registry http://registry.npm.taobao.org
-RUN sh build.sh
+RUN sh build.sh prod false
 
 EXPOSE 4000
 # client side render

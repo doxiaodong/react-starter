@@ -1,11 +1,12 @@
 {
     "extends": "react",
+    "publicUrl": "${publicUrl}",
     "entries": {
         "index": "src/index.jsx"
     },
     "pages": {
         "index": {
-            "template": "src/index.ssr.html",
+            "template": "src/${htmlname}",
             "entries": "index",
             "path": ""
         }

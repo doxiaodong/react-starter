@@ -24,3 +24,5 @@
 
 * lazyload (not render with ssr)
 * stores(routerStore, loading, toaster)
+
+### The Dockerfile is only for prod
