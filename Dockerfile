@@ -1,4 +1,4 @@
-FROM node:8.7.0
+FROM node:8.9.1
 
 COPY ./sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y curl wget autoconf automake gcc nasm libtool libpng-dev pkg-config make

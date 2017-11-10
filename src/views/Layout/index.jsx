@@ -7,6 +7,9 @@ import Footer from 'components/Footer';
 import Toaster from 'components/Toaster';
 
 import style from './style.styl';
+import avatar from './avatar.jpeg';
+import w1 from './w1.png';
+import w2 from './w2.jpg';
 
 @observer
 export default class Layout extends Component {
@@ -15,6 +18,11 @@ export default class Layout extends Component {
         return (
             <div className="h100">
                 <Header />
+                <div className="pictures">
+                    <img src={avatar} alt="avatar" />
+                    <img src={w1} alt="w1" />
+                    <img src={w2} alt="w2" />
+                </div>
                 <div className={style.container}>{renderRoutes(routes)}</div>
                 <Footer />
                 <Toaster />

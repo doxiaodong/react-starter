@@ -35,5 +35,6 @@ fi
 cp env/${BUILD_ENV}.json server/env.json
 
 # build
-./node_modules/.bin/fec-builder clean
-./node_modules/.bin/fec-builder -e production -f ./env/${BUILD_ENV}.json --ISOMORPHIC_TOOLS_FILE ./server/isomorphic.js generate
+alias fec-builder=./node_modules/.bin/fec-builder
+fec-builder clean
+fec-builder -e production -f ./env/${BUILD_ENV}.json --ISOMORPHIC_TOOLS_FILE ./server/isomorphic.js generate

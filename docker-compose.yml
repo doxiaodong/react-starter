@@ -1,20 +1,20 @@
 version: "3"
 
 services:
-  react-stater:
+  react-starter:
     restart: always
-    image: react-stater
+    image: react-starter
     build: .
-    container_name: react-stater
+    container_name: react-starter
     ports:
       - 4000:4000
 
-  react-stater-ssr:
+  react-starter-ssr:
     restart: always
-    image: react-stater-ssr
+    image: react-starter-ssr
     build:
       context: .
       dockerfile: Dockerfile.ssr
-    container_name: react-stater-ssr
+    container_name: react-starter-ssr
     ports:
       - 4001:4000

@@ -2,6 +2,7 @@
     "extends": "react",
     "publicUrl": "${publicUrl}",
     "entries": {
+        "lib": "src/lib.js",
         "index": "src/index.jsx"
     },
     "pages": {
