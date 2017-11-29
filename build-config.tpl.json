@@ -13,8 +13,8 @@
         }
     },
     "transforms": {
-        "styl": {
-            "transformer": "stylus",
+        "scss": {
+            "transformer": "sass",
             "config": {
                 "autoprefixOptions": {
                     "browsers": ["last 2 version", "> 20%"]

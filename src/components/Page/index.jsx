@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Title from 'components/Title';
 
-import style from './style.styl';
+import style from './style.scss';
 
 export default class Page extends Component {
     render() {

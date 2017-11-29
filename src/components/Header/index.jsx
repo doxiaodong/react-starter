@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import routerStore from 'stores/router';
 
-import style from './style.styl';
+import style from './style.scss';
 
 @observer
 class Header extends Component {

@@ -3,8 +3,6 @@ import { reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import toasterStore from 'stores/toaster';
 
-import './style.styl';
-
 @observer
 export default class Toaster extends Component {
     componentDidMount() {

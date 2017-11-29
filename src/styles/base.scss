@@ -1,0 +1,14 @@
+@import '~styles/variables';
+
+:global {
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body,
+    .h100 {
+        height: 100%;
+        margin: 0;
+    }
+}

@@ -1,16 +1,13 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
+import { shallow, render } from 'enzyme';
+// why need cheerio, see https://github.com/airbnb/enzyme/issues/1162
+import cheerio from 'cheerio'
 import Loading from 'components/Loading';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Loading Component', () => {
     test('Snapshot', () => {
-        const component = renderer.create(<Loading />);
-        expect(component.toJSON()).toMatchSnapshot();
+        const component = render(<Loading />);
+        expect(cheerio.html(component)).toMatchSnapshot();
     });
 
     test('Enzyme', () => {

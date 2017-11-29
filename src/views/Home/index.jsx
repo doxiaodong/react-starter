@@ -7,7 +7,7 @@ import Page from 'components/Page';
 
 import ssrStore from 'stores/ssr';
 import store from './store';
-import style from './style.styl';
+import style from './style.scss';
 
 @observer
 class Home extends Component {

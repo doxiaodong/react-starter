@@ -1,0 +1,7 @@
+@import '~styles/variables';
+
+.container {
+    overflow: hidden;
+    min-height: calc(100% - #{$header-height + $footer-height});
+    padding: 5px;
+}
