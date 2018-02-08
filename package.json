@@ -2,7 +2,7 @@
     "name": "react-starter",
     "version": "1.0.0",
     "scripts": {
-        "lint": "npm run lint:es & npm run lint:style",
+        "lint": "npm run lint:es && npm run lint:style",
         "lint:es": "eslint . --ext .js,jsx",
         "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
         "format": "npm run format:es & npm run format:style",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, render } from 'enzyme';
 // why need cheerio, see https://github.com/airbnb/enzyme/issues/1162
-import cheerio from 'cheerio'
+import cheerio from 'cheerio';
 import Loading from 'components/Loading';
 
 describe('Loading Component', () => {
