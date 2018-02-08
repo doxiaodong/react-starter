@@ -1,13 +1,12 @@
 {
     "extends": "react",
-    "publicUrl": "${publicUrl}",
     "entries": {
         "lib": "src/lib.js",
         "index": "src/index.jsx"
     },
     "pages": {
         "index": {
-            "template": "src/${htmlname}",
+            "template": "src/index.html",
             "entries": "index",
             "path": ""
         }
@@ -16,11 +15,11 @@
         "scss": {
             "transformer": "sass",
             "config": {
-                "autoprefixOptions": {
-                    "browsers": ["last 2 version", "> 20%"]
-                },
                 "modules": true
             }
         }
+    },
+    "optimization": {
+        "extractVendor": "lib"
     }
 }

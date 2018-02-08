@@ -1,0 +1,4 @@
+{
+    "extends": "./base.json",
+    "publicUrl": "https://beta-static.darlin.me/"
+}

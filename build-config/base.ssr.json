@@ -1,0 +1,10 @@
+{
+    "extends": "./base.json",
+    "pages": {
+        "index": {
+            "template": "src/index.ssr.html",
+            "entries": "index",
+            "path": ""
+        }
+    }
+}
