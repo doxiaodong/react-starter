@@ -5,7 +5,7 @@ SSR=$2
 
 BUILD_CONFIG_FILE=build-config/base.json
 
-if [ SSR = true ]; then
+if [ ${SSR} = true ]; then
     if [ -f build-config/${BUILD_ENV}.ssr.json ]; then
         BUILD_CONFIG_FILE=build-config/${BUILD_ENV}.ssr.json
     else
