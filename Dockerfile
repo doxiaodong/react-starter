@@ -1,6 +1,6 @@
 FROM node:8.9.1
 
-COPY ./sources.list /etc/apt/sources.list
+# COPY ./sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y curl wget autoconf automake gcc nasm libtool libpng-dev pkg-config make
 
 RUN mkdir -p /app
@@ -9,7 +9,8 @@ COPY . /app
 
 RUN ls
 RUN npm cache verify
-RUN npm i --registry http://registry.npm.taobao.org
+# RUN npm i --registry http://registry.npm.taobao.org
+RUN npm i
 RUN sh build.sh prod false
 
 EXPOSE 4000
